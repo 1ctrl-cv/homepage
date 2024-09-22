@@ -1,5 +1,7 @@
-// Author: XLuoFox.DSY
-//做出了一些更改，例如移除了对同作者的 易.js 的依赖
+// Copyright (c) XluoFox.DSY, B84F2246
+// Author: XLuoFox.DSY, B84F2246
+// visit.js
+//////////////////////////////////////
 
 // 读LocalStorage
 function localStorageRead(name, defau = null) {
@@ -52,33 +54,31 @@ async function yhSendMsg(token, recvId, recvType, contentType, text) {
             reqOpt
         );
         const req = await response.text();
-        // console.log("yhSendMsg", req);
+        // console.log("yhSendMsg:", req);
     } catch (err) {
         console.error("yhSendMsg", err);
     }
 }
 
 // 获取访问者经纬度
-// 不想用但留着
-// 这个涉及别人隐私太危险了，拒绝开盒，从你我做起
-// function xl_客户端_获取_用户地理位置(经度变量, 纬度变量) {
-//   if ("geolocation" in navigator) {
-//     navigator.geolocation.getCurrentPosition(
-//       (位置) => {
-//         const c_纬度 = 位置.coords.latitude;
-//         const c_经度 = 位置.coords.longitude;
-//         yi_调试_输出("客户端_获取_用户地理位置", `纬度: ${c_纬度}, 经度: ${c_经度}`);
-//         经度变量.value = c_经度;
-//         纬度变量.value = c_纬度;
-//       },
-//       (错误) => {
-//         yi_调试_输出_错误("客户端_获取_用户地理位置", 错误.message);
-//       }
-//     );
-//   } else {
-//     yi_调试_输出_错误("客户端_获取_用户地理位置", "Geolocation API在此环境中不可用。");
-//   }
-// }
+//function getVisiterLocation(longitudeVar, latitudeVar) {
+//    if ("geolocation" in navigator) {
+//        navigator.geolocation.getCurrentPosition(
+//            (location) => {
+//                const latitude = location.coords.latitude;
+//                const longitude = location.coords.longitude;
+//                //console.log("getVisiterLocation:", `纬度: ${latitude}, 经度: ${longitude}`);
+//                longitudeVar = longitude;
+//                latitudeVar = latitude;
+//            },
+//            (err) => {
+//                console.error("getVisiterLocation", err.message);
+//            }
+//        );
+//    } else {
+//        console.error("getVisiterLocation", "Geolocation API在此环境中不可用。");
+//    }
+//}
 
 // 向云湖账号发送信息
 function sendVisit() {
