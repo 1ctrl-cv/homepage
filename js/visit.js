@@ -10,13 +10,13 @@ function localStorageRead(name, defau = null) {
 }
 
 // 获取访问者IP
-async function getVistrerIP() {
+function getVistrerIP() {
     try {
-        const req = await fetch("https://api.ipify.org?format=json");
+        const req = fetch("https://api.ipify.org?format=json");
         if (!req.ok) {
             throw new Error("网络请求失败：" + req.statusText);
         }
-        const dat = await req.json();
+        const dat = req.json();
         return dat.ip;
     } catch (err) {
         console.error("getVisiterIP", err);
