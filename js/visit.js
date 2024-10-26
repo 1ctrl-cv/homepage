@@ -10,13 +10,13 @@ function localStorageRead(name, defau = null) {
 }
 
 // 获取访问者IP
-function getVistrerIP() {
+async function getVistrerIP() {
     try {
-        const req = fetch("https://api.ipify.org?format=json");
+        const req = await fetch("https://api.ipify.org?format=json");
         if (!req.ok) {
             throw new Error("网络请求失败：" + req.statusText);
         }
-        const dat = req.json();
+        const dat = await req.json();
         return dat.ip;
     } catch (err) {
         console.error("getVisiterIP", err);
@@ -59,26 +59,6 @@ async function yhSendMsg(token, recvId, recvType, contentType, text) {
         console.error("yhSendMsg", err);
     }
 }
-
-// 获取访问者经纬度
-//function getVisiterLocation(longitudeVar, latitudeVar) {
-//    if ("geolocation" in navigator) {
-//        navigator.geolocation.getCurrentPosition(
-//            (location) => {
-//                const latitude = location.coords.latitude;
-//                const longitude = location.coords.longitude;
-//                //console.log("getVisiterLocation:", `纬度: ${latitude}, 经度: ${longitude}`);
-//                longitudeVar = longitude;
-//                latitudeVar = latitude;
-//            },
-//            (err) => {
-//                console.error("getVisiterLocation", err.message);
-//            }
-//        );
-//    } else {
-//        console.error("getVisiterLocation", "Geolocation API在此环境中不可用。");
-//    }
-//}
 
 // 向云湖账号发送信息
 function sendVisit() {
