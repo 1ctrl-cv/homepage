@@ -65,6 +65,8 @@ function sendVisit() {
     const visitLocation = window.location.href;
     if (visitLocation.includes("file:///")) {
         console.log("不发送, 因为地址栏包含file:///");
+    } if (visitLocation.includes("127.0.0.1")) {
+        console.log("不发送, 因为地址栏包含127.0.0.1");
     } else {
         console.log("欢迎访问")
         const time = new Date().toLocaleString();
@@ -79,7 +81,7 @@ function sendVisit() {
                 "4624989",
                 "user",
                 "markdown",
-                `### 有人访问你的屎山主页了! \n- 访问时间：${time}\n- 累计访问：${visitsNumber}次\n- 访问IP: ${visiterIP}\n- UserAgent: ${UA}`,
+                `### 有人访问了你的主页! \n- 访问时间：${time}\n- 累计访问：${visitsNumber}次\n- 访问IP: ${visiterIP}\n- UserAgent: ${UA}`,
             );
         });
     }
