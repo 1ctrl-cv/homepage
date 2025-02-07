@@ -1,0 +1,10 @@
+meting-js {
+  z-index: 900;
+  position: absolute;
+  opacity: .60 !important;
+  letter-spacing: 1px;
+}
+
+.aplayer-lrc {
+  display: none !important;
+}
